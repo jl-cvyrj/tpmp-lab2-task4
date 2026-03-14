@@ -8,16 +8,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-	
       - name: Create directories
-        run: mkdir -p obj bin
-	
+        run: mkdir -p obj bin	
       - name: Build project
         run: make
-
       - name: Run all test files
         run: |
           for testfile in docs/tests/*.txt; do
-            echo "=== Running $testfile ==="
+            echo "Running $testfile"
             ./bin/main "$testfile"
           done
