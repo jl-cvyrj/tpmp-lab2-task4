@@ -7,6 +7,7 @@
  */
 
 #include <stdio.h>
+#include <locale.h>
 #include "../include/patient.h"
 
 int
@@ -14,6 +15,8 @@ main(int argc, char *argv[])
 {
         struct PATIENT  patients[MAX_PATIENTS];
         int             count;
+
+	setlocale(LC_ALL, "");
 
         if (argc < 2)
         {

@@ -1,5 +1,5 @@
-Ivanau Ivan Ivanavich M Belarus 180 80 1990 5 10 375291234567 220000 Belarus Minsk Minsk Minsk Lenina 10 1 4 MC001 Gryp A+
-Petrou Piatro Piatrovich M Belarus 175 75 1988 3 15 375291111111 220001 Belarus Minsk Minsk Minsk Pushkina 15 5 3 MC002 Prastuda B+
-Sidorau Sidor Sidoravich M Belarus 182 90 1995 7 20 375292222222 220002 Belarus Minsk Minsk Minsk Savieckaja 20 3 4 MC003 Covid O+
-Kazlou Ivan Ivanavich M Belarus 178 82 1992 4 12 375293333333 220003 Belarus Minsk Minsk Minsk Centralnaja 8 12 2 MC004 Alerhija AB+
-Smirnou Pavel Siarhiejevich M Belarus 185 88 1991 9 25 375294444444 220004 Belarus Minsk Minsk Minsk Mira 14 7 4 MC005 Pneumanija A-
+Smith John Michael M American 180 80 1990 5 10 5551234567 10001 USA California Los-Angeles Los-Angeles Sunset-Street 10 1 101 4 MC001 Flu A+
+Doe Mary Jane F British 165 60 1992 7 15 5559876543 20002 UK England London London Baker-Street 7 2 102 4 MC002 Cold B+
+Brown Alice Ann F Canadian 170 65 1995 3 20 5555555555 30003 Canada Ontario Toronto Toronto Queen-Street 20 3 103 4 MC003 Covid O+
+Johnson Robert Paul M American 182 90 1988 12 1 5551112222 40004 USA New-York New-York New-York Broadway 15 5 104 3 MC004 Allergy AB+
+Taylor Emma Louise F Australian 168 55 1993 9 5 5553334444 50005 Australia New-South-Wales Sydney Sydney George-Street 8 2 105 4 MC005 Flu A-

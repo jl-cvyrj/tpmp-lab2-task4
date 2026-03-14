@@ -9,6 +9,7 @@
  */
 
 #include <stdio.h>
+#include <string.h>
 #include "../../include/patient.h"
 
 /*
@@ -19,61 +20,78 @@
  *      з тэкставага файла.
  */
 
-int
-read_patients_from_file(const char      *filename,
-                        struct PATIENT  patients[],
-                        int             max_count)
+/* Максімальная даўжыня радка */
+#define MAX_LINE 512
+
+int read_patients_from_file(const char *filename,
+                            struct PATIENT patients[],
+                            int max_count)
 {
-        FILE    *file;
-        int     i;
-
-        file = fopen(filename, "r");
-
-        if (file == NULL)
+        FILE *file = fopen(filename, "r");
+        if (!file)
         {
-                printf("Памылка адкрыцця файла\n");
+                printf("Не атрымалася адкрыць файл: %s\n", filename);
                 return 0;
         }
 
-        i = 0;
+        char line[MAX_LINE];
+        int i = 0;
 
-        while (i < max_count &&
-               fscanf(file,
-                      "%s %s %s %s %s %d %d %d %d %d %s "
-                      "%s %s %s %s %s %s %s "
-                      "%d %d %s %s %s",
-                      patients[i].last_name,
-                      patients[i].first_name,
-                      patients[i].patronymic,
-                      patients[i].gender,
-                      patients[i].nationality,
-                      &patients[i].height,
-                      &patients[i].weight,
-                      &patients[i].birth_date.year,
-                      &patients[i].birth_date.month,
-                      &patients[i].birth_date.day,
-                      patients[i].phone,
-                      patients[i].home_address.postal_code,
-                      patients[i].home_address.country,
-                      patients[i].home_address.region,
-                      patients[i].home_address.district,
-                      patients[i].home_address.city,
-                      patients[i].home_address.street,
-                      patients[i].home_address.house,
-                      &patients[i].hospital_number,
-                      &patients[i].department,
-                      patients[i].medical_card,
-                      patients[i].diagnosis,
-                      patients[i].blood_type) == 23)
+        while (i < max_count && fgets(line, MAX_LINE, file))
         {
+                line[strcspn(line, "\r\n")] = 0;  // прыбіраем \n і \r
+
+                // Спачатку чытаем першыя 12 палёў
+                int scanned = sscanf(line,
+                                     "%s %s %s %s %s %d %d %d %d %d %s %s",
+                                     patients[i].last_name,
+                                     patients[i].first_name,
+                                     patients[i].patronymic,
+                                     patients[i].gender,
+                                     patients[i].nationality,
+                                     &patients[i].height,
+                                     &patients[i].weight,
+                                     &patients[i].birth_date.year,
+                                     &patients[i].birth_date.month,
+                                     &patients[i].birth_date.day,
+                                     patients[i].phone,
+                                     patients[i].home_address.postal_code);
+
+                if (scanned != 12)
+                {
+                        printf("Прапушчаны радок або няправільны фармат:\n%s\n", line);
+                        continue;
+                }
+
+                // Далей счытваем астатнія паля праз "%s" па чарзе
+                scanned = sscanf(line,
+                                 "%*s %*s %*s %*s %*s %*d %*d %*d %*d %*d %*s %*s "
+                                 "%s %s %s %s %s %s %s %d %d %s %s %s",
+                                 patients[i].home_address.country,
+                                 patients[i].home_address.region,
+                                 patients[i].home_address.district,
+                                 patients[i].home_address.city,
+                                 patients[i].home_address.street,
+                                 patients[i].home_address.house,
+                                 patients[i].home_address.apartment,
+                                 &patients[i].hospital_number,
+                                 &patients[i].department,
+                                 patients[i].medical_card,
+                                 patients[i].diagnosis,
+                                 patients[i].blood_type);
+
+                if (scanned != 12)
+                {
+                        printf("Прапушчаны радок або няправільны фармат:\n%s\n", line);
+                        continue;
+                }
+
                 i++;
         }
 
         fclose(file);
-
         return i;
 }
-
 
 /*
  * Функцыя: print_patients
@@ -171,3 +189,4 @@ write_patients_to_file(const char *filename,
 
         fclose(file);
 }
+
