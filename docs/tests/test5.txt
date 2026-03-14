@@ -1,0 +1,5 @@
+Ivanau Ivan Ivanavich M Belarus 180 80 1990 5 10 375291234567 220000 Belarus Minsk Minsk Minsk Lenina 10 1 4 MC001 Gryp A+
+Petrou Piatro Piatrovich M Belarus 175 75 1988 3 15 375291111111 220001 Belarus Minsk Minsk Minsk Pushkina 15 5 3 MC002 Prastuda B+
+Sidorau Sidor Sidoravich M Belarus 182 90 1995 7 20 375292222222 220002 Belarus Minsk Minsk Minsk Savieckaja 20 3 4 MC003 Covid O+
+Kazlou Ivan Ivanavich M Belarus 178 82 1992 4 12 375293333333 220003 Belarus Minsk Minsk Minsk Centralnaja 8 12 2 MC004 Alerhija AB+
+Smirnou Pavel Siarhiejevich M Belarus 185 88 1991 9 25 375294444444 220004 Belarus Minsk Minsk Minsk Mira 14 7 4 MC005 Pneumanija A-
