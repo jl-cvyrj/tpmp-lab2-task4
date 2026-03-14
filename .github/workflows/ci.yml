@@ -1,0 +1,20 @@
+name: C Program Tests
+
+on: [push, pull_request]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build project
+        run: make
+
+      - name: Run all test files
+        run: |
+          for testfile in docs/tests/*.txt; do
+            echo "=== Running $testfile ==="
+            ./bin/main "$testfile"
+          done
