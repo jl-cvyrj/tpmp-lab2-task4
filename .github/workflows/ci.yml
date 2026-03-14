@@ -8,7 +8,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
+	
+      - name: Create directories
+        run: mkdir -p obj bin
+	
       - name: Build project
         run: make
 
